@@ -1,3 +1,4 @@
+This View App is a theme select layout component useing React hooks, and JSS, material ui core.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
