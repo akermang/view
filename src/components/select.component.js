@@ -4,6 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import {WHITE, TEAL } from "../variables/variables";
 
 const styles = theme => ({
   root: {
@@ -20,16 +21,15 @@ const styles = theme => ({
 });
 
 const SelectComponent = ({ callback, classes, themeName }) => {
-  const handleChange = event => {
-    callback(event.target.value);
-  };
-
   return (
     <form className={classes.root} autoComplete="off">
       <FormControl className={classes.formControl}>
-        <Select value={themeName} onChange={handleChange}>
-          <MenuItem value={"white"}>White</MenuItem>
-          <MenuItem value={"teal"}>Teal</MenuItem>
+        <Select
+          value={themeName}
+          onChange={e => callback(e.target.value)}
+        >
+          <MenuItem value={WHITE}>White</MenuItem>
+          <MenuItem value={TEAL}>Teal</MenuItem>
         </Select>
       </FormControl>
     </form>

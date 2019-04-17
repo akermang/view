@@ -24,7 +24,7 @@ const styles = {
 const HeaderComponent = ({ classes, theme, backAction }) => {
   return (
     <div className={classes.headerRoot}>
-      <BackButton backAction={() => backAction()} theme={theme.backButton} />
+      <BackButton backAction={backAction} theme={theme.backButton} />
       <span className={classes.logo}>
         <Logo theme={theme.logo} />
       </span>

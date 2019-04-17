@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import HeaderComponent from "./components/header.component";
 import SelectComponent from "./components/select.component";
+import {WHITE, TEAL } from "./variables/variables";
 
 const whiteTheme = {
-  name: "white",
+  name: WHITE,
   backButton: { color: "#757575" },
   logo: { fill: "#1fc4f9" },
   root: { backgroundColor: "#0000" },
@@ -13,7 +14,7 @@ const whiteTheme = {
 };
 
 const tealTheme = {
-  name: "teal",
+  name: TEAL,
   backButton: { color: "#ffff" },
   logo: { fill: "#ffff" },
   root: { backgroundColor: "#29e2ff" },
@@ -54,22 +55,22 @@ const styles = {
 
 const themeProvider = themeName => {
   switch (themeName) {
-    case "white":
+    case WHITE:
       return whiteTheme;
-    case "teal":
+    case TEAL:
       return tealTheme;
     default:
       return whiteTheme;
-  };
+  }
 };
 
 const App = ({ classes }) => {
-  const [appTheme, setAppThem] = useState(themeProvider("white"));
+  const [appTheme, setAppTheme] = useState(themeProvider(WHITE));
 
   const toggleTheme = () => {
-    appTheme.name === "white"
-      ? setAppThem(themeProvider("teal"))
-      : setAppThem(themeProvider("white"));
+    appTheme.name === WHITE
+      ? setAppTheme(themeProvider(TEAL))
+      : setAppTheme(themeProvider(WHITE));
   };
 
   return (
@@ -77,7 +78,7 @@ const App = ({ classes }) => {
       className={classes.root}
       style={{ backgroundColor: `${appTheme.root.backgroundColor}` }}
     >
-      <HeaderComponent theme={appTheme} backAction={() => toggleTheme()} />
+      <HeaderComponent theme={appTheme} backAction={toggleTheme} />
 
       <div className={classes.mainBody}>
         <div
@@ -85,7 +86,7 @@ const App = ({ classes }) => {
           style={{ boxShadow: `${appTheme.card.boxShadow}` }}
         >
           <SelectComponent
-            callback={themeName => setAppThem(themeProvider(themeName))}
+            callback={themeName => setAppTheme(themeProvider(themeName))}
             themeName={appTheme.name}
           />
         </div>
