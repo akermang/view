@@ -19,8 +19,7 @@ const styles = theme => ({
   }
 });
 
-const SelectComponent = props => {
-  const { callback, classes, themeName } = props;
+const SelectComponent = ({ callback, classes, themeName }) => {
   const handleChange = event => {
     callback(event.target.value);
   };

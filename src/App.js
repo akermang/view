@@ -60,7 +60,7 @@ const themeProvider = themeName => {
       return tealTheme;
     default:
       return whiteTheme;
-  }
+  };
 };
 
 const App = ({ classes }) => {

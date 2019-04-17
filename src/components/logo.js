@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactSVG from "react-svg";
-import logo from "../assets/logo.svg";
+import Logo from "../assets/logo.svg";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
@@ -11,11 +11,11 @@ const styles = {
   }
 };
 
-const logoSvg = ({ classes, theme }) => {
+const LogoSvg = ({ classes, theme }) => {
   return (
     <div className={"logo-component"}>
       <ReactSVG
-        src={logo}
+        src={Logo}
         svgClassName={classes.logo}
         svgStyle={theme}
         wrapper="span"
@@ -24,13 +24,13 @@ const logoSvg = ({ classes, theme }) => {
   );
 };
 
-logoSvg.propTypes = {
+LogoSvg.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired
 };
 
-logoSvg.defaultProps = {
+LogoSvg.defaultProps = {
   theme: { fill: "#1fc4f9" }
 };
 
-export default withStyles(styles)(logoSvg);
+export default withStyles(styles)(LogoSvg);
